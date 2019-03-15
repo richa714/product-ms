@@ -31,7 +31,7 @@ public class ProductServiceImpl implements IProductService {
 	public void updateProduct(Product product, int id) throws ProductNotFoundException {
 		Optional<Product> productInDb = productRepository.findById(id);
 		if (!productInDb.isPresent())
-			throw new ProductNotFoundException("Product not present with id--" + id);
+			throw new ProductNotFoundException(id);
 		product.setId(id);
 		productRepository.save(product);
 
@@ -42,7 +42,7 @@ public class ProductServiceImpl implements IProductService {
 		Optional<Product> productInDb = productRepository.findById(id);
 
 		if (!productInDb.isPresent())
-			throw new ProductNotFoundException("Product not present with id--" + id);
+			throw new ProductNotFoundException(id);
 
 		productRepository.deleteById(id);
 
@@ -52,7 +52,7 @@ public class ProductServiceImpl implements IProductService {
 	public Product getSpecificProduct(int id) throws ProductNotFoundException {
 		Optional<Product> productInDb = productRepository.findById(id);
 		if (!productInDb.isPresent())
-			throw new ProductNotFoundException("Product not present with id--" + id);
+			throw new ProductNotFoundException(id);
 		System.out.println(productInDb.get());
 		return productInDb.get();
 	}

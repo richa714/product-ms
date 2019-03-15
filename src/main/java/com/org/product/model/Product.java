@@ -1,13 +1,14 @@
 package com.org.product.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -18,12 +19,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
+
 public class Product {
 
 	@Id
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_generator")
 	//@SequenceGenerator(name = "product_generator", sequenceName = "product_sequence", allocationSize = 50)
-	@GeneratedValue
+	//@GeneratedValue
 	private int id;
 	private String name;
 
@@ -32,5 +35,8 @@ public class Product {
 	private Double price;
 
 	private String type;
+	
+	@Transient	
+	private List<Review> reviews;
 
 }
