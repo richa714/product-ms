@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+   http://www.liquibase.org/xml/ns/dbchangelog 
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet author="Richa" id="ra10">
+	<preConditions onFail="WARN">
+	<sqlCheck expectedResult="0">select count(*) from product</sqlCheck>
+	</preConditions>
+	<dropTable tableName="product"/>
+		<createTable tableName="product"
+			remarks="A table to contain all products">
+			<column name="id" type="int" autoIncrement="true" startWith="100">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" />
+			</column>
+			<column name="name" type="varchar(255)">
+			</column>
+			<column name="type" type="varchar(255)">
+			</column>
+			<column name="description" type="varchar(255)">
+			</column>
+			<column name="price" type="double">
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="Richa" id="ra8">
+		<insert tableName="product">			
+			<column name="name" value="Asus ZenFone" />
+			<column name="type" value="Mobile" />
+			<column name="description"
+				value="Mobile Phone in range of 15k" />
+			<column name="price" valueNumeric="15000" />
+		</insert>
+	</changeSet>
+
+	<!-- <changeSet author="Richa" id="ra3">
+		<createSequence sequenceName="product_sequence"
+			startValue="1000" incrementBy="1" cycle="false" />
+	</changeSet>
+
+	<changeSet author="Richa" id="ra4">
+		<dropSequence sequenceName="product_sequence" />
+	</changeSet>
+
+	<changeSet author="Richa" id="ra5">
+		<addAutoIncrement columnDataType="int"
+			columnName="id" incrementBy="1" startWith="100"
+			tableName="product" />
+	</changeSet> -->
+
+</databaseChangeLog>
