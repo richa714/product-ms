@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 //@JsonIgnoreProperties(ignoreUnknown = true)
 public class Review {	
+	private int id;
 	private int rating;	
 	private String comments;
 	
