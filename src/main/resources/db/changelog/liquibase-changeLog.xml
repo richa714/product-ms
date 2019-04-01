@@ -8,7 +8,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog 
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-	<changeSet author="Richa" id="ra10">
+	<changeSet author="Richa" id="ra14">
 	<preConditions onFail="WARN">
 	<sqlCheck expectedResult="0">select count(*) from product</sqlCheck>
 	</preConditions>

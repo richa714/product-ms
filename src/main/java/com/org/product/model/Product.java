@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Product {
 	//@SequenceGenerator(name = "product_generator", sequenceName = "product_sequence", allocationSize = 50)
 	//@GeneratedValue
 	private int id;
+	
 	private String name;
 
 	private String description;
