@@ -8,11 +8,11 @@
    http://www.liquibase.org/xml/ns/dbchangelog 
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-	<changeSet author="Richa" id="ra14">
-	<preConditions onFail="WARN">
+	<changeSet author="Richa" id="ra17">
+	<!-- <preConditions onFail="WARN">
 	<sqlCheck expectedResult="0">select count(*) from product</sqlCheck>
 	</preConditions>
-	<dropTable tableName="product"/>
+	<dropTable tableName="product"/> -->
 		<createTable tableName="product"
 			remarks="A table to contain all products">
 			<column name="id" type="int" autoIncrement="true" startWith="100">
@@ -38,6 +38,9 @@
 				value="Mobile Phone in range of 15k" />
 			<column name="price" valueNumeric="15000" />
 		</insert>
+	</changeSet>
+	<changeSet author="Richa" id="ra15">
+		<dropTable tableName="DATABASECHANGELOGLOCK" />
 	</changeSet>
 
 	<!-- <changeSet author="Richa" id="ra3">

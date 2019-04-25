@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.org.product.model.Review;
 
-@FeignClient(name="ReviewApplication", fallback=ReviewClientFallback.class)
+@FeignClient(name="review-service", fallback=ReviewClientFallback.class)
 public interface ReviewClient {
 	
 	@PostMapping("/api/{productId}/reviews/")

@@ -61,7 +61,6 @@ public class ProductController {
 		// restTemplate.getForEntity(url,Review[].class);
 		// ResponseEntity<Review[]> reviews=restTemplate.exchange(url, HttpMethod.GET,
 		// null, Review[].class);
-
 		ResponseEntity<List<Review>> reviews = reviewClient.getReview(productId);
 		//System.out.println(reviews.getBody().);
 		product.setReviews(reviews.getBody());
